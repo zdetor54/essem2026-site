@@ -4,20 +4,27 @@ body {
 
 .hero-section {
     min-height: 70vh;
-    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('https://le-cdn.website-editor.net/s/9454a9757b70475e9b6b6e8f48b0f683/dms3rep/multi/opt/f4e201fe-99e4-45a5-8752-47f5936402fc-1920w.jpg');
+    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('_assets/hero.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding: 60px 0;
+    padding: 0px 0px 90px 0px 
 }
 
 .navbar-brand img {
     border-radius: 50%;
-    background: #fff;
-    padding: 2px;
+    padding: 4px;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
 }
 
 a.link-light {
     color: #fff;
     text-decoration: underline;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(200 106 6) !important;
 }

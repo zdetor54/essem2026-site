@@ -28,3 +28,9 @@ a.link-light {
     --bs-bg-opacity: 1;
     background-color: rgb(200 106 6) !important;
 }
+
+.border-primary {
+    border-color: rgb(200 106 6) !important;
+}
+
+

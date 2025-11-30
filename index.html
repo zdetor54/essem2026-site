@@ -41,8 +41,29 @@
 function loadHTML(id, url) {
     fetch(url)
         .then(res => res.text())
-        .then(data => { document.getElementById(id).innerHTML = data; });
+        .then(data => { 
+            document.getElementById(id).innerHTML = data; 
+            if (id === 'nav-placeholder') {
+                setActiveNav();
+            }
+        });
 }
+
+function setActiveNav() {
+    var path = window.location.pathname.split('/').pop() || 'index.html';
+    var navLinks = document.querySelectorAll('#main-nav .nav-link');
+    navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === path) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+
 loadHTML('nav-placeholder', 'nav.html');
 loadHTML('footer-placeholder', 'footer.html');
 </script>

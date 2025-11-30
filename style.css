@@ -3,7 +3,7 @@ body {
 }
 
 .hero-section {
-    min-height: 70vh;
+    min-height: 67vh;
     background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/roel-dierckens-LzGjfk1SeDw-unsplash.jpg');
     background-size: cover;
     background-position: center;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register for ESSEM 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <main class="container my-5">
+        <h2 class="mb-3">Registration & Payment</h2>
+        <p>To register for ESSEM 2026, please follow the instructions below.The deadline for applications is 31st March 2026.</p>
+        <p>The course fee for ESSEM 2026 is &euro;TBC, which includes catering (lunch, tea/coffee) during the school.</p>
+        <p>Please register and pay the course fee via the link below. You will be redirected to a secure payment page.</p>
+
+        <p class="text-muted small">Test card: 4242424242424242</p>
+
+        <!-- payment -->
+        <p style="margin-top: 2rem;">
+        <a class="btn btn-primary btn-lg" href="https://buy.stripe.com/test_eVq7sNgqtgDO93w72v4Rq00"
+            target="_blank"
+            rel="noopener">
+            Register & Pay
+        </a>
+        </p>
+
+        <!-- poster abstract submission -->
+        <hr class="my-5">
+
+        <h2 class="mb-3">Poster Abstract Submission</h2>
+        <p class="alert alert-warning">Only registered participants will be considered for poster presentations.</p>
+        <p>Please submit the title and abstract for your poster presentation using the form below.
+        Only registered participants will be considered. Abstracts must be a maximum of <strong>250 words</strong>.</p>
+
+        <p>
+        <a class="btn btn-primary btn-lg" 
+            href="https://forms.gle/qbpTSJiL2VtXLUVx5"
+            target="_blank" rel="noopener">
+            Submit Poster Abstract
+        </a>
+        </p>
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function loadHTML(id, url) {
+        fetch(url)
+            .then(res => res.text())
+            .then(data => { 
+                document.getElementById(id).innerHTML = data; 
+                if (id === 'nav-placeholder') {
+                    setActiveNav();
+                }
+            });
+    }
+
+    function setActiveNav() {
+        var path = window.location.pathname.split('/').pop() || 'index.html';
+        var navLinks = document.querySelectorAll('#main-nav .nav-link');
+        navLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === path) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    loadHTML('nav-placeholder', 'nav.html');
+    loadHTML('footer-placeholder', 'footer.html');
+    </script>
+</body>
+</html>

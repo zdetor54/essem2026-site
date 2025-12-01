@@ -34,3 +34,27 @@ a.link-light {
 }
 
 
+
+
+/* Only style links inside <main> with the orange color */
+main a, main a:link, main a:visited {
+    color: rgb(200, 106, 6);
+    text-decoration: none !important;
+}
+main a:hover, main a:active {
+    color: #b35a00;
+}
+
+.btn-primary {
+    background-color: rgb(200, 106, 6) !important;
+    border-color: rgb(200, 106, 6) !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background-color: #b35a00 !important;
+    border-color: #b35a00 !important;
+    color: #fff !important;
+}
+
+

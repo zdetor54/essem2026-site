@@ -19,6 +19,19 @@ body {
     object-fit: contain;
 }
 
+/* Force navbar to be fixed at the top */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+body {
+    padding-top: 56px; /* Adjust if navbar height is different */
+}
+
 a.link-light {
     color: #fff;
     text-decoration: underline;

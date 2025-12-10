@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/essem_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue | ESSEM 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container my-5">
+        <h1 class="mb-4">Venue</h1>
+        <p class="lead">ESSEM 2026 will be hosted on the King&#39;s College London campus. Final room locations and building details will be confirmed here closer to the event.</p>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5">Campus Overview</h2>
+                        <p>Sessions are planned for central London, with lecture spaces and breakout rooms on the King&#39;s campus. A detailed floor plan and accessibility notes will be added when room assignments are final.</p>
+                        <ul class="mb-0">
+                            <li>Central London location with easy transport links</li>
+                            <li>Lecture theatres + smaller seminar rooms</li>
+                            <li>On-site catering areas for coffee breaks and lunches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5">How to Get There</h2>
+                        <p>Travel guidance will follow once the exact building is confirmed. Expect directions from nearby Underground and rail stations, plus walking times.</p>
+                        <ul class="mb-0">
+                            <li>Nearest Underground: to be confirmed</li>
+                            <li>Nearest mainline rail: to be confirmed</li>
+                            <li>Suggested walking route and campus entrance: to be confirmed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(data => { 
+            document.getElementById(id).innerHTML = data; 
+            if (id === 'nav-placeholder') {
+                setActiveNav();
+            }
+        });
+    }
+    
+    function setActiveNav() {
+    var path = window.location.pathname;
+    var current = path.split('/').pop() || 'index.html';
+    if (current === '') { current = 'index.html'; }
+    var candidates = [current];
+    if (current === 'index.html') { candidates.push('/'); }
+    var navLinks = document.querySelectorAll('#main-nav .nav-link, #main-nav .dropdown-item');
+    navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (candidates.indexOf(href) !== -1) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+            var dropdown = link.closest('.dropdown');
+            if (dropdown) {
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.classList.add('active');
+                    toggle.setAttribute('aria-current', 'page');
+                }
+            }
+        } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+    
+    loadHTML('nav-placeholder', 'nav.html');
+    loadHTML('footer-placeholder', 'footer.html');
+    </script>
+</body>
+</html>
+

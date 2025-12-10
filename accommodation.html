@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="assets/essem_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation | ESSEM 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="container my-5">
+        <h1 class="mb-4">Accommodation</h1>
+        <p class="lead">Suggested hotels near King&#39;s College London. Booking links and negotiated rates will appear here once arrangements are confirmed.</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5">Riverside Hotel</h2>
+                        <p>4-star option within walking distance of the campus. Breakfast available; gym and Wi-Fi included.</p>
+                        <ul class="mb-0">
+                            <li>Distance: ~10 min walk (exact campus building TBC)</li>
+                            <li>Indicative rate: TBC</li>
+                            <li>Booking link: coming soon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5">City Central Hotel</h2>
+                        <p>Modern rooms with easy Tube access. Good option for quick connections to mainline stations.</p>
+                        <ul class="mb-0">
+                            <li>Distance: ~15 min by Tube + walk</li>
+                            <li>Indicative rate: TBC</li>
+                            <li>Booking link: coming soon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5">Budget Inn</h2>
+                        <p>Affordable rooms for attendees looking to minimize costs while staying central.</p>
+                        <ul class="mb-0">
+                            <li>Distance: ~20 min by bus + walk</li>
+                            <li>Indicative rate: TBC</li>
+                            <li>Booking link: coming soon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(data => { 
+            document.getElementById(id).innerHTML = data; 
+            if (id === 'nav-placeholder') {
+                setActiveNav();
+            }
+        });
+    }
+    
+    function setActiveNav() {
+    var path = window.location.pathname;
+    var current = path.split('/').pop() || 'index.html';
+    if (current === '') { current = 'index.html'; }
+    var candidates = [current];
+    if (current === 'index.html') { candidates.push('/'); }
+    var navLinks = document.querySelectorAll('#main-nav .nav-link, #main-nav .dropdown-item');
+    navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (candidates.indexOf(href) !== -1) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+            var dropdown = link.closest('.dropdown');
+            if (dropdown) {
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.classList.add('active');
+                    toggle.setAttribute('aria-current', 'page');
+                }
+            }
+        } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+    
+    loadHTML('nav-placeholder', 'nav.html');
+    loadHTML('footer-placeholder', 'footer.html');
+    </script>
+</body>
+</html>
+

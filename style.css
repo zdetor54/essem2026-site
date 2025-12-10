@@ -2,6 +2,12 @@ body {
     background: #f8f9fa;
 }
 
+/* Keep a consistent viewport width to avoid navbar shift when the scrollbar toggles */
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
 .hero-section {
     min-height: 67vh;
     background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/roel-dierckens-LzGjfk1SeDw-unsplash.jpg');
@@ -25,7 +31,11 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 0 1rem !important;
+    background-color: #222 !important;
     z-index: 1050;
+    display: flex;
+    align-items: stretch;
 }
 
 body {
@@ -45,9 +55,6 @@ a.link-light {
 .border-primary {
     border-color: rgb(200 106 6) !important;
 }
-
-
-
 
 /* Only style links inside <main> with the orange color */
 main a, main a:link, main a:visited {
@@ -70,4 +77,70 @@ main a:hover, main a:active {
     color: #fff !important;
 }
 
+/* Navbar link states */
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 400;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 1rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.navbar .nav-link.active,
+.navbar .nav-link.show {
+    color: #fff;
+    background-color: rgb(200, 106, 6);
+}
 
+.navbar .nav-item {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    height: 100%;
+}
+
+.navbar .navbar-brand {
+    margin: 0;
+    padding: 1rem 1rem;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-nav {
+    align-items: stretch;
+    height: 100%;
+}
+
+.navbar .container-fluid {
+    padding: 0;
+    align-items: stretch;
+}
+
+/* Navbar dropdown dark theme */
+.navbar .dropdown-menu {
+    background-color: #222;
+    border-color: #333;
+    padding: 6px 0;
+}
+.navbar .dropdown-item {
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 400;
+}
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+    color: #fff;
+    background-color: rgb(200, 106, 6);
+}

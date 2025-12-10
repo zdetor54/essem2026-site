@@ -54,13 +54,25 @@ function loadHTML(id, url) {
 }
 
 function setActiveNav() {
-    var path = window.location.pathname.split('/').pop() || 'index.html';
-    var navLinks = document.querySelectorAll('#main-nav .nav-link');
+    var path = window.location.pathname;
+    var current = path.split('/').pop() || 'index.html';
+    if (current === '') { current = 'index.html'; }
+    var candidates = [current];
+    if (current === 'index.html') { candidates.push('/'); }
+    var navLinks = document.querySelectorAll('#main-nav .nav-link, #main-nav .dropdown-item');
     navLinks.forEach(function(link) {
         var href = link.getAttribute('href');
-        if (href === path) {
+        if (candidates.indexOf(href) !== -1) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
+            var dropdown = link.closest('.dropdown');
+            if (dropdown) {
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.classList.add('active');
+                    toggle.setAttribute('aria-current', 'page');
+                }
+            }
         } else {
             link.classList.remove('active');
             link.removeAttribute('aria-current');
@@ -73,3 +85,4 @@ loadHTML('footer-placeholder', 'footer.html');
 </script>
 </body>
 </html>
+

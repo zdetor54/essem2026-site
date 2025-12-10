@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="/">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
             <img src="assets/essem_logo.png" alt="ESSEM Logo" width="40" height="40" class="d-inline-block align-text-top">
-            ESSEM 2026
+            <span class="ms-1">ESSEM 2026</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto" id="main-nav">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item nav-link" href="about.html">About ESSEM</a></li>
+                        <li><a class="dropdown-item nav-link" href="venue.html">Venue</a></li>
+                        <li><a class="dropdown-item nav-link" href="accommodation.html">Accommodation</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
                 <li class="nav-item"><a class="nav-link" href="programme.html">Programme</a></li>
                 <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>

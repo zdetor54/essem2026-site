@@ -10,9 +10,9 @@ html {
 
 .hero-section {
     min-height: 67vh;
-    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/roel-dierckens-LzGjfk1SeDw-unsplash.jpg');
+    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/home_image_1.png');
     background-size: cover;
-    background-position: center;
+    background-position: top right;
     color: #fff;
     padding: 20px 0px 90px 0px 
 }

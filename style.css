@@ -2,6 +2,12 @@ body {
     background: #f8f9fa;
 }
 
+/* Keep a consistent viewport width to avoid navbar shift when the scrollbar toggles */
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
 .hero-section {
     min-height: 67vh;
     background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/roel-dierckens-LzGjfk1SeDw-unsplash.jpg');

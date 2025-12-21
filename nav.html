@@ -27,14 +27,27 @@
             </ul>
         </div>
     <style>
-    /* Show dropdown on hover for About menu */
-    .navbar-nav .dropdown:hover .dropdown-menu {
+    /* Dropdown unfolds from navbar down */
+    .navbar-nav .dropdown .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s;
         display: block;
-        top: 100%;
+        pointer-events: none;
+        top: 100% !important;
         left: 0;
         right: auto;
         margin-top: 0;
-        transform: none;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+    .navbar-nav .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 500px; /* Large enough for menu, adjust as needed */
+        pointer-events: auto;
     }
     </style>
     </style>

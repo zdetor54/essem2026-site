@@ -1,0 +1,182 @@
+/* ============================================================================
+   ROOT & COLOR VARIABLES
+   ============================================================================ */
+:root {
+    --color-primary: rgb(200, 106, 6);
+    --color-primary-hover: #b35a00;
+    --color-dark-bg: #222;
+    --color-dark-border: #333;
+    --color-light-text: rgba(255, 255, 255, 0.72);
+    --color-light-text-full: #fff;
+    --color-light-hover: rgba(255, 255, 255, 0.08);
+    --color-body-bg: #f8f9fa;
+    --color-overlay: rgba(44, 62, 80, 0.7);
+    --navbar-height: 56px;
+    --transition-fast: 0.15s ease;
+}
+
+/* ============================================================================
+   GLOBAL STYLES
+   ============================================================================ */
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+body {
+    background: var(--color-body-bg);
+    padding-top: var(--navbar-height);
+}
+
+/* ============================================================================
+   TYPOGRAPHY & LINKS
+   ============================================================================ */
+a.link-light {
+    color: var(--color-light-text-full);
+    text-decoration: underline;
+}
+
+main a,
+main a:link,
+main a:visited {
+    color: var(--color-primary);
+    text-decoration: none !important;
+}
+
+main a:hover,
+main a:active {
+    color: var(--color-primary-hover);
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
+.hero-section {
+    min-height: 67vh;
+    background: linear-gradient(var(--color-overlay), var(--color-overlay)), url('assets/home_image_1.png');
+    background-size: cover;
+    background-position: top right;
+    color: var(--color-light-text-full);
+    padding: 20px 0 90px 0;
+}
+
+/* ============================================================================
+   NAVBAR
+   ============================================================================ */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem !important;
+    background-color: var(--color-dark-bg) !important;
+    z-index: 1050;
+    display: flex;
+    align-items: stretch;
+}
+
+.navbar .container-fluid {
+    padding: 0;
+    align-items: stretch;
+}
+
+/* Navbar Brand */
+.navbar .navbar-brand {
+    margin: 0;
+    padding: 1rem;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+    padding: 4px;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+/* Navbar Navigation */
+.navbar .navbar-nav {
+    align-items: stretch;
+    height: 100%;
+}
+
+.navbar .nav-item {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    height: 100%;
+}
+
+.navbar .nav-link {
+    color: var(--color-light-text);
+    font-weight: 400;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--color-light-text-full);
+    background-color: var(--color-light-hover);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link.show {
+    color: var(--color-light-text-full);
+    background-color: var(--color-primary);
+}
+
+/* Navbar Dropdown Menu */
+.navbar .dropdown-menu {
+    background-color: var(--color-dark-bg);
+    border-color: var(--color-dark-border);
+    padding: 6px 0;
+}
+
+.navbar .dropdown-item {
+    color: var(--color-light-text);
+    font-weight: 400;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    color: var(--color-light-text-full);
+    background-color: var(--color-light-hover);
+}
+
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+    color: var(--color-light-text-full);
+    background-color: var(--color-primary);
+}
+
+/* ============================================================================
+   BUTTONS & COLOR UTILITIES
+   ============================================================================ */
+.btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-light-text-full) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover) !important;
+    border-color: var(--color-primary-hover) !important;
+    color: var(--color-light-text-full) !important;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: var(--color-primary) !important;
+}
+
+.border-primary {
+    border-color: var(--color-primary) !important;
+}

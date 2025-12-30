@@ -1,20 +1,92 @@
-body {
-    background: #f8f9fa;
+/* ============================================================================
+   ROOT & COLOR VARIABLES
+   ============================================================================ */
+:root {
+    --color-primary: rgb(200, 106, 6);
+    --color-primary-hover: #b35a00;
+    --color-dark-bg: #222;
+    --color-dark-border: #333;
+    --color-light-text: rgba(255, 255, 255, 0.72);
+    --color-light-text-full: #fff;
+    --color-light-hover: rgba(255, 255, 255, 0.08);
+    --color-body-bg: #f8f9fa;
+    --color-overlay: rgba(44, 62, 80, 0.7);
+    --navbar-height: 56px;
+    --transition-fast: 0.15s ease;
 }
 
-/* Keep a consistent viewport width to avoid navbar shift when the scrollbar toggles */
+/* ============================================================================
+   GLOBAL STYLES
+   ============================================================================ */
 html {
     overflow-y: scroll;
     scrollbar-gutter: stable;
 }
 
+body {
+    background: var(--color-body-bg);
+    padding-top: var(--navbar-height);
+}
+
+/* ============================================================================
+   TYPOGRAPHY & LINKS
+   ============================================================================ */
+a.link-light {
+    color: var(--color-light-text-full);
+    text-decoration: underline;
+}
+
+main a,
+main a:link,
+main a:visited {
+    color: var(--color-primary);
+    text-decoration: none !important;
+}
+
+main a:hover,
+main a:active {
+    color: var(--color-primary-hover);
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
 .hero-section {
     min-height: 67vh;
-    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('assets/home_image_1.png');
+    background: linear-gradient(var(--color-overlay), var(--color-overlay)), url('assets/home_image_1.png');
     background-size: cover;
     background-position: top right;
-    color: #fff;
-    padding: 20px 0px 90px 0px 
+    color: var(--color-light-text-full);
+    padding: 20px 0 90px 0;
+}
+
+/* ============================================================================
+   NAVBAR
+   ============================================================================ */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem !important;
+    background-color: var(--color-dark-bg) !important;
+    z-index: 1050;
+    display: flex;
+    align-items: stretch;
+}
+
+.navbar .container-fluid {
+    padding: 0;
+    align-items: stretch;
+}
+
+/* Navbar Brand */
+.navbar .navbar-brand {
+    margin: 0;
+    padding: 1rem;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand img {
@@ -25,78 +97,10 @@ html {
     object-fit: contain;
 }
 
-/* Force navbar to be fixed at the top */
-.navbar {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0 1rem !important;
-    background-color: #222 !important;
-    z-index: 1050;
-    display: flex;
+/* Navbar Navigation */
+.navbar .navbar-nav {
     align-items: stretch;
-}
-
-body {
-    padding-top: 56px; /* Adjust if navbar height is different */
-}
-
-a.link-light {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.bg-primary {
-    --bs-bg-opacity: 1;
-    background-color: rgb(200 106 6) !important;
-}
-
-.border-primary {
-    border-color: rgb(200 106 6) !important;
-}
-
-/* Only style links inside <main> with the orange color */
-main a, main a:link, main a:visited {
-    color: rgb(200, 106, 6);
-    text-decoration: none !important;
-}
-main a:hover, main a:active {
-    color: #b35a00;
-}
-
-.btn-primary {
-    background-color: rgb(200, 106, 6) !important;
-    border-color: rgb(200, 106, 6) !important;
-    color: #fff !important;
-}
-
-.btn-primary:hover {
-    background-color: #b35a00 !important;
-    border-color: #b35a00 !important;
-    color: #fff !important;
-}
-
-/* Navbar link states */
-.navbar .nav-link {
-    color: rgba(255, 255, 255, 0.72);
-    font-weight: 400;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
     height: 100%;
-    padding: 1rem 1rem;
-    transition: color 0.15s ease, background-color 0.15s ease;
-}
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.08);
-}
-.navbar .nav-link.active,
-.navbar .nav-link.show {
-    color: #fff;
-    background-color: rgb(200, 106, 6);
 }
 
 .navbar .nav-item {
@@ -106,41 +110,73 @@ main a:hover, main a:active {
     height: 100%;
 }
 
-.navbar .navbar-brand {
-    margin: 0;
-    padding: 1rem 1rem;
-    margin-right: 0.75rem;
+.navbar .nav-link {
+    color: var(--color-light-text);
+    font-weight: 400;
+    border-radius: 0;
     display: flex;
     align-items: center;
-}
-
-.navbar .navbar-nav {
-    align-items: stretch;
     height: 100%;
+    padding: 1rem;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.navbar .container-fluid {
-    padding: 0;
-    align-items: stretch;
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--color-light-text-full);
+    background-color: var(--color-light-hover);
 }
 
-/* Navbar dropdown dark theme */
+.navbar .nav-link.active,
+.navbar .nav-link.show {
+    color: var(--color-light-text-full);
+    background-color: var(--color-primary);
+}
+
+/* Navbar Dropdown Menu */
 .navbar .dropdown-menu {
-    background-color: #222;
-    border-color: #333;
+    background-color: var(--color-dark-bg);
+    border-color: var(--color-dark-border);
     padding: 6px 0;
 }
+
 .navbar .dropdown-item {
-    color: rgba(255, 255, 255, 0.72);
+    color: var(--color-light-text);
     font-weight: 400;
 }
+
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--color-light-text-full);
+    background-color: var(--color-light-hover);
 }
+
 .navbar .dropdown-item.active,
 .navbar .dropdown-item:active {
-    color: #fff;
-    background-color: rgb(200, 106, 6);
+    color: var(--color-light-text-full);
+    background-color: var(--color-primary);
+}
+
+/* ============================================================================
+   BUTTONS & COLOR UTILITIES
+   ============================================================================ */
+.btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-light-text-full) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover) !important;
+    border-color: var(--color-primary-hover) !important;
+    color: var(--color-light-text-full) !important;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: var(--color-primary) !important;
+}
+
+.border-primary {
+    border-color: var(--color-primary) !important;
 }

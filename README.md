@@ -10,5 +10,3 @@ git config user.email "zdetor54@gmail.com"
 
 git config user.name
 git config user.email
-
-another

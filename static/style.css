@@ -28,6 +28,10 @@ body {
     padding-top: var(--navbar-height);
 }
 
+body.modal-open {
+    padding-right: 0 !important;
+}
+
 /* ============================================================================
    TYPOGRAPHY & LINKS
    ============================================================================ */
@@ -170,6 +174,24 @@ main a:active {
     background-color: var(--color-primary-hover) !important;
     border-color: var(--color-primary-hover) !important;
     color: var(--color-light-text-full) !important;
+}
+
+.btn-outline-primary {
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-light-text-full) !important;
+}
+
+.modal-backdrop.show {
+    --bs-backdrop-bg: var(--color-primary);
+    --bs-backdrop-opacity: 0.45;
 }
 
 .bg-primary {

@@ -215,3 +215,16 @@ main a:active {
 .border-primary {
     border-color: var(--color-primary) !important;
 }
+
+/* ============================================================================
+   SPONSOR LOGOS
+   ============================================================================ */
+.sponsor-logo-link {
+    min-height: 130px;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.sponsor-logo-link:hover {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
